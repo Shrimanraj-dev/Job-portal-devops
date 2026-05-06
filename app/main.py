@@ -15,7 +15,7 @@ TOPIC_ARN = 'arn:aws:sns:ap-south-1:845488705635:job-application-topic'
 @app.route('/', methods=['GET', 'POST'])
 def apply():
     if request.method == 'POST':
-        name = request.form['name']
+        name = request.form['Name']
         email = request.form['email']
         resume = request.files['resume']
         app_id = str(uuid.uuid4())
