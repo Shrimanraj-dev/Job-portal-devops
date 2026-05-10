@@ -3,11 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Shrimanraj-dev/Job-portal-devops.git'
-            }
-        }
+        
 
        stage('Build Docker Image') {
     steps {
