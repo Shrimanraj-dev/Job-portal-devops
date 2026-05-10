@@ -5,25 +5,25 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Shrimanraj-dev/Job-portal-devops'
+                git 'https://github.com/Shrimanraj-dev/Job-portal-devops.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t jobportal .'
+                sh 'docker build -t jobportal .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
-                bat 'docker rm -f jobportal-container || exit 0'
+                sh 'docker rm -f jobportal-container || true'
             }
         }
 
         stage('Run New Container') {
             steps {
-                bat 'docker run -d -p 5000:5000 --name jobportal-container jobportal'
+                sh 'docker run -d -p 5000:5000 --name jobportal-container jobportal'
             }
         }
     }
