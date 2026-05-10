@@ -9,22 +9,18 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('List') {
             steps {
-                sh 'docker build -t jobportal .'
+                sh 'ls'
+            }
+        }
+		
+		 stage('Shri') {
+            steps {
+                sh 'echo SHRIMAN'
             }
         }
 
-        stage('Stop Old Container') {
-            steps {
-                sh 'docker rm -f jobportal-container || true'
-            }
-        }
-
-        stage('Run New Container') {
-            steps {
-                sh 'docker run -d -p 5000:5000 --name jobportal-container jobportal'
-            }
-        }
+       
     }
 }
