@@ -9,11 +9,12 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t jobportal .'
-            }
-        }
+       stage('Build Docker Image') {
+    steps {
+        sh 'ls -la'
+        sh 'docker build -t jobportal .'
+    }
+}
 
         stage('Stop Old Container') {
             steps {
